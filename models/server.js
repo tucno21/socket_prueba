@@ -16,6 +16,9 @@ class Server {
         //configuracion de socket.io
         this.io = socketio(this.server, {
             /* configuraciones */
+            // cors: {
+            //     origin: "http://localhost:5173",
+            // },
         });
     }
 
@@ -25,6 +28,9 @@ class Server {
 
         //cors
         this.app.use(cors());
+        // this.app.use(cors({
+        //     origin: 'http://localhost:5173'
+        // }));
     }
 
     configSockets() {

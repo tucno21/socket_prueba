@@ -10,33 +10,18 @@
 </head>
 
 <body class="container">
-    <h1 class="mt-5">Mine Chat</h1>
+    <h1 class="mt-5">Acceso denegado</h1>
     <hr>
 
-    <form id="miForm">
-        <div class="row">
-            <div class="col-8">
-                <input type="text" id="mensaje" placeholder="Mensaje" class="form-control" />
-            </div>
-            <div class="col-4">
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </div>
-        </div>
-    </form>
 
-    <div class="row">
-        <div class="col">
-            <ul id="misMensajes" class="mt-2"></ul>
-        </div>
-    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.0/socket.io.js"
         integrity="sha512-+sXUwEYakGznuXubXLO/7LWSAPcm+U3NxMJaSu3S5OcvruAAAzaC50Uh4TW9KWj0hA6vfPAjB7E1uuIXgn9vmQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        // const socket = io('http://localhost:8080');
-        const socket = io('http://wonderful-decision-doq.domcloud.io/');
+        const socket = io('http://localhost:8080');
+        // const socket = io('http://wonderful-decision-doq.domcloud.io/');
         const form = document.querySelector('#miForm');
         const mensaje = document.querySelector('#mensaje');
         const mensajes = document.querySelector('#misMensajes');
@@ -54,19 +39,9 @@
 
 
         // recibir mensaje o escuchar
-        socket.on('mensaje-servidor', (data) => {
+        socket.on('banda-servidor', (data) => {
             console.log(data);
-            mensajes.innerHTML += `<li>${data.nombre}: ${data.mensaje}</li>`;
         });
-
-
-        // // enviar mensaje
-        // setTimeout(() => {
-        //     socket.emit('mensaje-cliente', {
-        //         nombre: 'jose',
-        //         mensaje: 'hola mundo 5'
-        //     });
-        // }, 3000);
 
     </script>
 </body>
